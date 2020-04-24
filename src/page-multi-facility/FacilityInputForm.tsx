@@ -8,11 +8,11 @@ import InputDescription from "../design-system/InputDescription";
 import InputNameWithIcon from "../design-system/InputNameWithIcon";
 import ChartArea from "../impact-dashboard/ChartArea";
 import ImpactProjectionTable from "../impact-dashboard/ImpactProjectionTableContainer";
-import MitigationInformation from "../impact-dashboard/MitigationInformation";
 import useModel from "../impact-dashboard/useModel";
 import { FacilityContext } from "./FacilityContext";
 import FacilityInformationSection from "./FacilityInformationSection";
 import LocaleInformationSection from "./LocaleInformationSection";
+import RateOfSpreadSection from "./RateOfSpreadSection";
 
 const FacilityInputFormDiv = styled.div`
   display: flex;
@@ -73,7 +73,7 @@ const FacilityInputForm: React.FC = () => {
           setSystemType={setSystemType}
         />
         <FacilityInformationSection />
-        <MitigationInformation />
+        <RateOfSpreadSection />
         <ButtonSection>
           <InputButton label="Save" onClick={save} />
         </ButtonSection>
