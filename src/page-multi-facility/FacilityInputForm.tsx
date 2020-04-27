@@ -3,16 +3,17 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 
 import { saveFacility } from "../database/index";
+import Colors from "../design-system/Colors";
 import InputButton from "../design-system/InputButton";
 import InputDescription from "../design-system/InputDescription";
 import InputNameWithIcon from "../design-system/InputNameWithIcon";
 import ChartArea from "../impact-dashboard/ChartArea";
+import FacilityInformation from "../impact-dashboard/FacilityInformation";
 import ImpactProjectionTable from "../impact-dashboard/ImpactProjectionTableContainer";
+import MitigationInformation from "../impact-dashboard/MitigationInformation";
 import useModel from "../impact-dashboard/useModel";
 import { FacilityContext } from "./FacilityContext";
-import FacilityInformationSection from "./FacilityInformationSection";
 import LocaleInformationSection from "./LocaleInformationSection";
-import RateOfSpreadSection from "./RateOfSpreadSection";
 
 const FacilityInputFormDiv = styled.div`
   display: flex;
@@ -29,6 +30,19 @@ const RightColumn = styled.div`
 
 const ButtonSection = styled.div`
   margin-top: 30px;
+`;
+
+const borderStyle = `1px solid ${Colors.paleGreen}`;
+
+export const SectionHeader = styled.header`
+  font-family: Libre Baskerville;
+  font-weight: normal;
+  font-size: 19px;
+  line-height: 24px;
+  padding: 20px 0;
+  color: ${Colors.forest};
+  letter-spacing: -0.06em;
+  border-top: ${borderStyle};
 `;
 
 const FacilityInputForm: React.FC = () => {
@@ -72,8 +86,10 @@ const FacilityInputForm: React.FC = () => {
           systemType={systemType}
           setSystemType={setSystemType}
         />
-        <FacilityInformationSection />
-        <RateOfSpreadSection />
+        <SectionHeader>Facility Details</SectionHeader>
+        <FacilityInformation />
+        <SectionHeader>Rate of Spread</SectionHeader>
+        <MitigationInformation />
         <ButtonSection>
           <InputButton label="Save" onClick={save} />
         </ButtonSection>
